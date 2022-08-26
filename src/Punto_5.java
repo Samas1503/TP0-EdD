@@ -15,14 +15,15 @@ public class Punto_5 {
         } else {
             System.out.println("\t... No eligio ninguna de las dos opciones dadas...");
         }
+        cs.close();
     }
 
     // Primer procedimiento: el usuario ingresa los numeros
     public void procedimiento_1() {
         int numerador = 0, divisor = 0, resto = 0;// Declaracion de variables
+        Scanner cs = new Scanner(System.in);
         try {
             System.out.println("ingrese un numero: ");
-            Scanner cs = new Scanner(System.in);
             var num1 = cs.nextInt();
             System.out.println("ingrese un numero:");
             var num2 = cs.nextInt();
@@ -33,6 +34,7 @@ public class Punto_5 {
         } catch (Exception e) {
             System.out.println("\t...Error al Ingresar..." + e);
         }
+        cs.close();
     }
 
     // Segundo procedimiento: se generan de forma random los numeros entre 1 y 10

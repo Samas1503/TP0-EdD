@@ -11,6 +11,7 @@ public class Punto_6 {
     int eleccion = 0;
 
     Scanner sc = new Scanner(System.in);
+
     Random random = new Random();
 
     public void principal() {
@@ -21,16 +22,15 @@ public class Punto_6 {
         if (eleccion == 1) {
             ingresoDatosManual();
             if (otraBandera = true) {
-                esTriangulo();
-                clasificacionTriangulo();
+                esTriangulo(this.lado1,this.lado2,this.lado3);
+                clasificacionTriangulo(this.lado1, this.lado2, this.lado3);
             }
         } else if (eleccion == 2) {
             ingresoDatosAleatorio();
-            mostrarLados();
-            esTriangulo();
-            clasificacionTriangulo();
+            mostrarLados(this.lado1, this.lado2, this.lado3);
+            esTriangulo(this.lado1, this.lado2, this.lado3);
+            clasificacionTriangulo(this.lado1, this.lado2, this.lado3);
         }
-        sc.close();
     }
 
     private void eleccionIngreso() {
@@ -48,14 +48,13 @@ public class Punto_6 {
 
     private void ingresoDatosManual() {
         // Ejecuta el ingreso de datos manual
-
         try {
             System.out.print("Ingrese el lado 1: ");
-            lado1 = Math.abs(sc.nextInt());
+            this.lado1 = sc.nextInt();
             System.out.print("Ingrese el lado 2: ");
-            lado2 = Math.abs(sc.nextInt());
+            this.lado2 = sc.nextInt();
             System.out.print("Ingrese el lado 3: ");
-            lado3 = Math.abs(sc.nextInt());
+            this.lado3 = sc.nextInt();
         } catch (Exception e) {
             System.out.println("Error en el ingreso de datos " + e);
             otraBandera = true;
@@ -66,12 +65,12 @@ public class Punto_6 {
 
     private void ingresoDatosAleatorio() {
         // Ejecuta el ingreso de datos aleatorio
-        lado1 = random.nextInt(30);
-        lado2 = random.nextInt(30);
-        lado3 = random.nextInt(30);
+        this.lado1 = random.nextInt(30);
+        this.lado2 = random.nextInt(30);
+        this.lado3 = random.nextInt(30);
     }
 
-    private void esTriangulo() {
+    private void esTriangulo(int lado1,int lado2, int lado3) {
         // Si se cumple el teorema de la desigualdad del triangulo imprime un mensaje
         // y cambia el valor de bandera para que el triangulo pueda ser clasificado
 
@@ -83,7 +82,7 @@ public class Punto_6 {
         }
     }
 
-    private void clasificacionTriangulo() {
+    private void clasificacionTriangulo(int lado1, int lado2, int lado3) {
         // Clasifica el triangulo en Equilatero, Isoceles o Escaleno o no lo clasifica
         // si el valor de bandera no fue modificado
 
@@ -100,7 +99,7 @@ public class Punto_6 {
         }
     }
 
-    private void mostrarLados() {
+    private void mostrarLados(int lado1, int lado2, int lado3) {
         // Muestra los lados generados aleatoriamente
 
         System.out.println("Los lados generados aleatoriamente son:");
