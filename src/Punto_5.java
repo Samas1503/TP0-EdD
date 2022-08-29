@@ -6,6 +6,8 @@ public class Punto_5 {
     public void principal() {
         int resp = 0;
         Scanner cs = new Scanner(System.in);
+        System.out.println("1er Procedimiento: ingreso de dato numerico tipo entero a pedido del usuario");
+		System.out.println("2do Procedimiento: ingreso de dato numerico tipo entero de forma random en un intervalo de 1 a 10");
         System.out.println("cual procedimiento quiere hacer? 1/2");
         resp = cs.nextInt();
         if (resp == 1) {
