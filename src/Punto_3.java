@@ -38,7 +38,7 @@ public class Punto_3 {
             System.out.println("3. Cancelar ");
             System.out.println("Elija una opcion ");
             op = this.teclado.nextInt();
-        } catch (java.util.InputMismatchException e) {
+        } catch (Exception e) {
             System.out.println("error en la entrada de datos: "+e);
         }
         return op;
