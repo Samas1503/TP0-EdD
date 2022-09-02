@@ -8,7 +8,7 @@ public class Punto_4 {
             System.out.println("Ingrese un numero: ");
             n = sc.nextInt();
             if (n >= 1)
-                if (detCompuestos(n))
+                if (determinarCompuestos(n))
                     System.out.println("Es un numero compuesto! :) ");
                 else
                     System.out.println("No es un numero compuesto! :( ");
@@ -22,14 +22,18 @@ public class Punto_4 {
         sc.close();
     }
 
-    public boolean detCompuestos(int n) {
+    public boolean determinarCompuestos(int n) {
         boolean band = true;
+        if (contarDivisores(n) == 2)
+            band = false;
+        return band;
+    }
+    
+    public int contarDivisores(int n) {
         int cont = 0;
         for (int i = 1; i <= n; i++)
             if (n % i == 0)
                 cont++;
-        if (cont == 2)
-            band = false;
-        return band;
+        return cont;
     }
 }
