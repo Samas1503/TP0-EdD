@@ -3,37 +3,38 @@ import java.util.Scanner;
 public class Punto_4 {
     public void principal() {
         Scanner sc = new Scanner(System.in);
-        int n;
+        int n = 0;
         try {
-            System.out.println("Ingrese un numero: ");
-            n = sc.nextInt();
-            if (n >= 1)
-                if (determinarCompuestos(n))
-                    System.out.println("Es un numero compuesto! :) ");
-                else
-                    System.out.println("No es un numero compuesto! :( ");
-            else {
-                sc.close();
-                throw new RuntimeException("El numero debe ser positivo y mayor que 1");
+            while (n <= 1) {
+                System.out.println("Ingrese un numero mayor a 1");
+                n = sc.nextInt();
+            }
+            switch (determinarCompuestos(n)) {
+                case 1:
+                    System.out.println("El numero ingresado es un numero compuesto");
+                    break;
+                case 2:
+                    System.out.println("El numero ingresado no es un numero compuesto");
+                    break;
             }
         } catch (Exception e) {
-            System.out.println("Error de ingreso!");
+            System.out.println("Error al ingresar en: " + e);
         }
         sc.close();
     }
 
-    public boolean determinarCompuestos(int n) {
-        boolean band = true;
-        if (contarDivisores(n) == 2)
-            band = false;
-        return band;
-    }
-    
-    public int contarDivisores(int n) {
+    private int contarDivisores(int numero) {
         int cont = 0;
-        for (int i = 1; i <= n; i++)
-            if (n % i == 0)
+        for (int i = 0; i <= numero; i++)
+            if (numero % i == 0)
                 cont++;
         return cont;
+    }
+    
+    private int determinarCompuestos(int numero) {
+        if(contarDivisores(numero) != 2)
+            return 0; //numero compuesto
+        else
+            return 1; //numero primo
     }
 }
