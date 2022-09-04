@@ -10,10 +10,10 @@ public class Punto_4 {
                 n = sc.nextInt();
             }
             switch (determinarCompuestos(n)) {
-                case 1:
+                case 0:
                     System.out.println("El numero ingresado es un numero compuesto");
                     break;
-                case 2:
+                case 1:
                     System.out.println("El numero ingresado no es un numero compuesto");
                     break;
             }
@@ -25,7 +25,7 @@ public class Punto_4 {
 
     private int contarDivisores(int numero) {
         int cont = 0;
-        for (int i = 0; i <= numero; i++)
+        for (int i = 1; i <= numero; i++)
             if (numero % i == 0)
                 cont++;
         return cont;
